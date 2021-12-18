@@ -1,19 +1,24 @@
 {
   "name": "JSON Formatter",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "manifest_version": 2,
   "description": "Makes JSON easy to read. Open source.",
   "homepage_url": "https://github.com/callumlocke/json-formatter",
-  "minimum_chrome_version": "21",
+  "minimum_chrome_version": "71",
   "icons": {
        "128": "icons/128.png",
        "32": "icons/32.png"
   },
   "background": {
-    "scripts": ["js/background.js"]
+    "scripts": [
+      "js/background.js",
+      "js/context-menu/background.js"
+    ],
+    "persistent": false
   },
   "content_scripts": [
-    { "matches": ["<all_urls>"], "js": ["js/content.js"], "run_at": "document_start" }
+    { "matches": ["<all_urls>"], "js": ["js/content.js"], "run_at": "document_start" },
+    { "matches": ["<all_urls>"], "js": ["js/context-menu/content.js"], "all_frames": true, "match_about_blank": true }
   ],
-  "permissions":["*://*/*", "<all_urls>"]
+  "permissions":["*://*/*", "<all_urls>", "contextMenus", "notifications"]
 }
