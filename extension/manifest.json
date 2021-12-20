@@ -12,13 +12,19 @@
   "background": {
     "scripts": [
       "js/background.js",
-      "js/context-menu/background.js"
+      "context-menu/js/background.js"
     ],
     "persistent": false
   },
   "content_scripts": [
     { "matches": ["<all_urls>"], "js": ["js/content.js"], "run_at": "document_start" },
-    { "matches": ["<all_urls>"], "js": ["js/context-menu/content.js"], "all_frames": true, "match_about_blank": true }
+    { 
+      "matches": ["<all_urls>"], 
+      "css": ["context-menu/css/font-awesome.min.css", "context-menu/css/style.css"],
+      "js": ["context-menu/js/content.js"], 
+      "all_frames": true, 
+      "match_about_blank": true
+    }
   ],
   "permissions":["*://*/*", "<all_urls>", "contextMenus", "notifications"]
 }

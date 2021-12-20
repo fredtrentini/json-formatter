@@ -1,0 +1,99 @@
+body {
+	margin: 0;
+}
+
+.header {
+	background-color: green;
+	width: 100%;
+	height: 100px;
+}
+
+.main {
+	padding: 5px;
+}
+
+.container {
+	padding: 0 40px;
+}
+
+.right-align {
+	text-align: right;
+	float: right;
+}
+
+.json-formatter__json-wrapper {
+	display: inline-block;
+	position: absolute;
+	z-index: 1;
+	min-width: 100px;
+	margin: 0;
+	padding: 0;
+	background: lightsteelblue;
+	border: 1px black solid;
+	overflow: hidden;
+	color: black;
+}
+
+.json-formatter__top-bar {
+	min-width: 100px;
+	height: 25px;
+	margin: 0;
+	padding: 0;
+}
+
+.json-formatter__moveable {
+	cursor: move;
+}
+
+.json-formatter__textarea {
+	min-width: 100px;
+	overflow: hidden;
+	margin: 0 0 -4px 0;
+	padding: 0;
+	outline: none;
+	resize: both;
+}
+
+.json-formatter__error {
+	border: 2px red solid;
+	color: red;
+	text-transform: uppercase;
+	font-family: "Times new roman";
+}
+
+.json-formatter__error .json-formatter__top-bar::before {
+	content: "Invalid JSON";
+}
+
+.json-formatter__button {
+	width: 25px;
+	height: 25px;
+	font-size: 18px;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	float: right;
+	top: 0;
+	cursor: pointer;
+}
+
+.json-formatter__copy-button {
+	background-color: rgb(89, 204, 214);
+}
+
+.json-formatter__copy-button:hover {
+	background-color: rgb(70, 180, 200);
+}
+
+.json-formatter__close-button {
+	background-color: rgb(237, 49, 49);
+	line-height: 4px;
+}
+
+.json-formatter__close-button:hover {
+	background-color: rgb(215, 45, 45);
+}
+
+.json-formatter__close-button::before {
+	content: "X";
+}

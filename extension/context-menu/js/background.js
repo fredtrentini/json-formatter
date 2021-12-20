@@ -44,8 +44,8 @@ SOFTWARE.
     }
 
     chrome.contextMenus.create({
-        id: "formatJson",
-        title: "Format JSON",
+        id: FORMAT_JSON_MESSAGE,
+        title: "Format json",
         contexts: ["selection", "editable", "page"],
     });
 
