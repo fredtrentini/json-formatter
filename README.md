@@ -57,7 +57,7 @@ Plain JavaScript objects are [unordered collections of properties](http://www.ec
 
 That would require manually parsing the JSON string with regular expressions (instead of using `JSON.parse`), which would be too slow. And it's not a good idea to go down the road of representing the data differently from how the engine actually sees it.
 
-#### What does this fork add
+What does this fork add
 ---
 
 As requested in [an issue of the original project](https://github.com/callumlocke/json-formatter/issues/48), I made a context menu button to format selected json.
