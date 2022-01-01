@@ -270,15 +270,12 @@ SOFTWARE.
 	document.addEventListener("contextmenu", (event) => {
 		selectedElement = event.target;
 		selectedPosition = {x: event.pageX, y: event.pageY};
-		// console.log(chrome.runtime.getURL(""));
 	});
 
 	// Handle incoming message
 	chrome.runtime.onMessage.addListener(handleMessage);
 }());
 
-// Handle move out of window
-// Highlight already existing element
 // Fullscreen mode
 // Icons: copy | fullscreen | re-evaluate json | close
 // Options: fixed [default] / relative

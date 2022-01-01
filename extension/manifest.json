@@ -3,7 +3,7 @@
   "version": "0.6.1",
   "manifest_version": 2,
   "description": "Makes JSON easy to read. Open source.",
-  "homepage_url": "https://github.com/callumlocke/json-formatter",
+  "homepage_url": "https://github.com/fredtrentini/json-formatter",
   "minimum_chrome_version": "71",
   "icons": {
        "128": "icons/128.png",
@@ -20,11 +20,14 @@
     { "matches": ["<all_urls>"], "js": ["js/content.js"], "run_at": "document_start" },
     { 
       "matches": ["<all_urls>"], 
-      "css": ["context-menu/css/font-awesome.min.css", "context-menu/css/style.css"],
+      "css": ["context-menu/css/style.css", "context-menu/css/font-awesome.min.css"],
       "js": ["context-menu/js/content.js"], 
       "all_frames": true, 
       "match_about_blank": true
     }
+  ],
+  "web_accessible_resources": [
+    "context-menu/fonts/*"
   ],
   "permissions":["*://*/*", "<all_urls>", "contextMenus", "notifications"]
 }
