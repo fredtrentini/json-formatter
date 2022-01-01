@@ -153,6 +153,21 @@ SOFTWARE.
 		jsonMap.delete(origin);
 		jsonWrapperElement.parentElement.removeChild(jsonWrapperElement);
 	}
+
+	function updateElementText(text, jsonWrapperElement, textareaElement) {
+		try {
+			textareaElement.value = formatJsonText(text);
+			jsonWrapperElement.classList.remove(jsonClass.ERROR);
+		} catch (e) {
+			if (e instanceof InvalidJsonException) {
+				textareaElement.value = text;
+				jsonWrapperElement.classList.add(jsonClass.ERROR);
+			}
+			else {
+				throw e;
+			}
+		}
+	}
 	
 	// Create or update json wrapper
 	function handleJsonWrapperElement(text, originElement) {
@@ -177,6 +192,13 @@ SOFTWARE.
 			jsonWrapperElement.style.top = `${selectedPosition.y}px`;
 			jsonWrapperElement.origin = originElement; // Element from which json wrapper was created
 			document.body.appendChild(jsonWrapperElement);
+	
+			// Create inner textarea
+			textareaElement = document.createElement("textarea");
+			textareaElement.rows = 8;
+			textareaElement.cols = 20;
+			textareaElement.classList.add(jsonClass.WRAPPER_FAMILY, jsonClass.TEXTAREA);
+			textareaElement.addEventListener("input", (event) => updateElementText(textareaElement.value, jsonWrapperElement, textareaElement));
 			
 			// Create move element
 			topBarElement = document.createElement("div");
@@ -198,33 +220,16 @@ SOFTWARE.
 			// Append buttons
 			topBarElement.appendChild(closeButtonElement);
 			topBarElement.appendChild(copyButtonElement);
-	
-			// Create inner textarea
-			textareaElement = document.createElement("textarea");
-			textareaElement.rows = 8;
-			textareaElement.cols = 20;
-			textareaElement.classList.add(jsonClass.WRAPPER_FAMILY, jsonClass.TEXTAREA);
+			
+			// Append textarea
 			jsonWrapperElement.appendChild(textareaElement);
-	
+			
 			// Store json wrapper
 			jsonMap.set(originElement, jsonWrapperElement);
 		}
 	
 		// Update element
-		if (text != null) {
-			try {
-				textareaElement.value = formatJsonText(text);
-				jsonWrapperElement.classList.remove(jsonClass.ERROR);
-			} catch (e) {
-				if (e instanceof InvalidJsonException) {
-					textareaElement.value = text;
-					jsonWrapperElement.classList.add(jsonClass.ERROR);
-				}
-				else {
-					throw e;
-				}
-			}
-		}
+		updateElementText(text, jsonWrapperElement, textareaElement);
 	
 		return jsonWrapperElement;
 	}
@@ -275,7 +280,3 @@ SOFTWARE.
 	// Handle incoming message
 	chrome.runtime.onMessage.addListener(handleMessage);
 }());
-
-// Fullscreen mode
-// Icons: copy | fullscreen | re-evaluate json | close
-// Options: fixed [default] / relative

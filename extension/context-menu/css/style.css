@@ -32,6 +32,7 @@ body {
 	border: 1px black solid;
 	overflow: hidden;
 	color: black;
+	font-family: "Verdana";
 }
 
 .json-formatter__top-bar {
@@ -58,7 +59,6 @@ body {
 	border: 2px red solid;
 	color: red;
 	text-transform: uppercase;
-	font-family: "Times new roman";
 }
 
 .json-formatter__error .json-formatter__top-bar::before {
