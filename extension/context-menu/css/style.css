@@ -1,26 +1,3 @@
-body {
-	margin: 0;
-}
-
-.header {
-	background-color: green;
-	width: 100%;
-	height: 100px;
-}
-
-.main {
-	padding: 5px;
-}
-
-.container {
-	padding: 0 40px;
-}
-
-.right-align {
-	text-align: right;
-	float: right;
-}
-
 .json-formatter__json-wrapper {
 	display: inline-block;
 	position: absolute;
